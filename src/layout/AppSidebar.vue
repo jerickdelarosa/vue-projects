@@ -1,6 +1,6 @@
 <template>
-    <aside :class="sidebarStatus ? 'block' : 'hidden'" id="separator-sidebar"
-        class="top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 ease-in-out"
+    <aside :class="sidebarStatus ? 'block' : 'hidden'" id="sidebar"
+        class="top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full translate-x-0 ease-in-out"
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800">
             <ul class="space-y-2 font-medium">
@@ -163,4 +163,18 @@ const props = defineProps({
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#sidebar {
+    -webkit-transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+    transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+}
+
+#sidebar.show {
+    transform: translateX(0);
+}
+
+#sidebar ul li a.active {
+    background: #1f2937;
+    background-color: #1f2937;
+}
+</style>

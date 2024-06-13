@@ -1,7 +1,7 @@
 <template>
     <div class="layout-wrapper">
         <AppHeader @menuClicked="handleMenuClicked" />
-        <div class="layout-sidebar">
+        <div>
             <AppSidebar :sidebarStatus="sidebarMenuStatus" />
         </div>
         <div class="layout-main-container">
@@ -11,7 +11,6 @@
             <app-footer></app-footer>
         </div>
     </div>
-
 </template>
 
 <script setup>
