@@ -1,6 +1,6 @@
 <template>
-    <aside :class="sidebarStatus ? 'block' : 'hidden'" id="sidebar"
-        class="top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full translate-x-0 ease-in-out"
+    <aside :class="sidebarStatus ? 'block translate-x-0' : 'hidden'" id="sidebar"
+        class="top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full ease-in-out "
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800">
             <ul class="space-y-2 font-medium">
