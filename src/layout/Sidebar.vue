@@ -113,20 +113,19 @@ import { ref, watch } from 'vue'
 
 const showSidebar = ref(false);
 
+if (window.innerWidth > 768) {
+    showSidebar.value = true
+    console.log(showSidebar.value)
+}
+
 </script>
 
 <style lang="scss" scoped>
-
 .flex-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   flex: 1 1 0%;
-}
-
-header {
-  background-color: #3F51B5;
-  color: #fff;
 }
 
 section.content {
