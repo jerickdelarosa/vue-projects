@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-slate-500 h-screen">
+    <div>
         <h1>Dashboard</h1>
     </div>
 </template>
