@@ -1,6 +1,6 @@
 <template>
     <div class="relative flex min-h-screen">
-        <AppSidebar :sidebarStatus="sidebarMenuStatus" />
+        <AppSidebar :sidebarStatus="sidebarMenuStatus"  @closeClicked="handleCloseClicked"/>
         <!-- Main Content -->
         <div class="flex-container bg-slate-100">
 
@@ -19,16 +19,19 @@
 import AppHeader from './AppHeader.vue'
 import AppSidebar from './AppSidebar.vue'
 import AppFooter from './AppFooter.vue'
-
-import Sidebar from './Sidebar.vue'
-
 import { ref, computed } from 'vue'
 
 const menuStatus = ref(false);
 
 const handleMenuClicked = (headerStatus) => {
-    console.log('menu-status: ', headerStatus.value)
-    menuStatus.value = headerStatus.value
+    if (window.innerWidth > 768) {
+        return menuStatus.value = headerStatus.value
+    } 
+    return menuStatus.value = true
+}
+
+const handleCloseClicked = () => {
+    menuStatus.value = false
 }
 
 // Pass menuStatus to sidebar
@@ -38,7 +41,6 @@ const sidebarMenuStatus = computed(() => {
 
 if (window.innerWidth > 768) {
     menuStatus.value = true
-    console.log("menu-status: ", menuStatus.value)
 }
 
 </script>

@@ -1,8 +1,8 @@
 <template>
     <!-- Sidebar -->
     <aside class="
-            bg-[#27374D]
-            text-cyan-100
+            bg-[#41B883]
+            text-slate-100
             w-64
             space-y-6
             px-2
@@ -15,62 +15,41 @@
             left-0
             transform
             -translate-x-full
-            " :class="sidebarStatus ? 'relative translate-x-0' : 'static -translate-x-0'">
+            " :class="sidebarStatus ? 'md:relative translate-x-0' : 'static -translate-x-0'">
 
-        <!--  :class="{'relative translate-x-0': showSidebar}" -->
-
-        <!-- absolute inset-y-0 left-0 md:relative md:-translate-x-0 transform -translate-x-full -->
-
-        <a href="" class="flex items-center space-x-2 px-4">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="size-10">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+        <span class="flex items-center justify-between space-x-4 px-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
             </svg>
-            <span class="text-2xl font-extrabold text-white">Sidebar</span>
-        </a>
-        <nav>
-            <a href="/"
-                class="group flex items-center space-x-2 py-3 px-4 hover:bg-cyan-700 rounded hover:text-cyan-300 transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            <button @click="onCloseClick(closeButton)" v-show="width < 768">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
-                <span class="text-white group-hover:text-cyan-300">Dashboard</span>
-            </a>
-            <a href="/"
-                class="group flex items-center space-x-2 py-3 px-4 hover:bg-cyan-700 rounded hover:text-cyan-300 transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                </svg>
-                <span class="text-white group-hover:text-cyan-300">Users</span>
-            </a>
-            <a href="/"
-                class="group flex items-center space-x-2 py-3 px-4 hover:bg-cyan-700 rounded hover:text-cyan-300 transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
-                <span class="text-white group-hover:text-cyan-300">Team</span>
-            </a>
-            <a href="/"
-                class="group flex items-center space-x-2 py-3 px-4 hover:bg-cyan-700 rounded hover:text-cyan-300 transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                </svg>
-                <span class="text-white group-hover:text-cyan-300">Project</span>
-            </a>
-        </nav>
+            </button>
+        </span>
+        <ul>
+            <li>
+                <a href="/"
+                class="group flex items-center space-x-4 py-3 px-4 hover:bg-[#38a172] rounded hover:text-white transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                    <span class="text-slate-100 group-hover:text-white font-semibold">Dashboard</span>
+                </a>
+            </li>
+        </ul>
     </aside>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useWindowSize } from '@/composables/useWindowSize';
+
+const closeButton = ref(false);
+
+const {width, height} = useWindowSize();
 
 const props = defineProps({
     sidebarStatus: {
@@ -79,20 +58,11 @@ const props = defineProps({
     }
 })
 
+const emit = defineEmits(['closeClicked'])
+
+const onCloseClick = () => {
+    closeButton.value = true
+    emit('closeClicked', closeButton)
+}
+
 </script>
-
-<style lang="scss" scoped>
-#sidebar {
-    -webkit-transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
-    transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
-}
-
-#sidebar.show {
-    transform: translateX(0);
-}
-
-#sidebar ul li a.active {
-    background: #1f2937;
-    background-color: #1f2937;
-}
-</style>
