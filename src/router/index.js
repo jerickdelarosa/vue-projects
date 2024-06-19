@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Dashboard from '../pages/Dashboard.vue'
+import Dashboard from '@/pages/Dashboard.vue'
 
 /* Main Layout */
 import AppLayout from '@/layout/AppLayout.vue'
@@ -15,11 +15,30 @@ const router = createRouter({
         {
           path: '/',
           name: 'dashboard',
-          component: () => import('@/pages/Dashboard.vue')
+          component: Dashboard,
+          meta: { title: 'Dashboard' }
+        },
+        {
+          path: '/expense-tracker',
+          name: 'expense-tracker',
+          component: () => import('@/pages/ExpenseTracker.vue'),
+          meta: { title: 'Expense Tracker' }
         },
       ]
+    },
+    {
+      path: '/:catchAll(.*)*',
+      name: 'page-not-found',
+      component: () => import('@/pages/Errors/NotFound.vue'),
+      meta: { title: 'Page Not Found' }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | Jedero`
+  next()
+
 })
 
 export default router
