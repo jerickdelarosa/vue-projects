@@ -13,7 +13,7 @@ const router = createRouter({
       component: AppLayout,
       children: [
         {
-          path: '/:id',
+          path: '/',
           name: 'dashboard',
           component: Dashboard,
           meta: { title: 'Dashboard' }
