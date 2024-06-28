@@ -3,7 +3,7 @@
     <aside class="
             bg-[#41B883]
             text-slate-100
-            z-50
+            z-10
             w-64
             space-y-6
             px-2
