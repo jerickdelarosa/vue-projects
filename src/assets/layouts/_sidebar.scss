@@ -1,0 +1,8 @@
+.layout-sidebar {
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    user-select: none;
+    left: 0;
+    transition: transform $transitionDuration, left $transitionDuration;
+}

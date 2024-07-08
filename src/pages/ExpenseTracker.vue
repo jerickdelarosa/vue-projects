@@ -1,10 +1,10 @@
 <template>
     <div class="main-container">
       <div class="grid grid-cols-12 gap-4">
-          <div class="col-span-12 md:col-span-4 p-5">
+          <div class="col-span-12 md:col-span-6 lg:col-span-4 p-5">
             <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
           </div>
-          <div class="col-span-12 md:col-span-8 p-5">
+          <div class="col-span-12 md:col-span-6 lg:col-span-8 p-5">
             <Balance :total="+total" />
             <IncomingExpenses :income="+income" :expenses="+expenses" />
             <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted" />

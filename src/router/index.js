@@ -24,6 +24,12 @@ const router = createRouter({
           component: () => import('@/pages/ExpenseTracker.vue'),
           meta: { title: 'Expense Tracker' }
         },
+        {
+          path: '/pokemon-picker',
+          name: 'pokemon-picker',
+          component: () => import('@/pages/PokemonPicker.vue'),
+          meta: { title: 'Pokemon Picker' }
+        },
       ]
     },
     {
