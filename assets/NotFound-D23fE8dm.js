@@ -1,0 +1,1 @@
+import{_ as e,o,c as t,a as c}from"./index-DklT2-TQ.js";const n={},r=c("h1",null,"Error 404: Page Not Found",-1),s=[r];function a(_,d){return o(),t("div",null,s)}const u=e(n,[["render",a]]);export{u as default};
